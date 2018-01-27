@@ -13,7 +13,12 @@ namespace MyDiary
         {
             InitializeComponent();
 
-            MainPage = new MyDiary.MainPage();
+            MainPage = GetMainPage();
+        }
+
+        public static Page GetMainPage()
+        {
+            return new MyDiary.MainPage();
         }
 
         protected override void OnStart()
