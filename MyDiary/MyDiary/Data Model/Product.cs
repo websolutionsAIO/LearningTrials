@@ -2,16 +2,16 @@
 
 namespace MyDiary
 {
-	public class Product : ModelObject {
+	public class Fee : ModelObject {
 		string name;
 		int unitPrice;
 
-		public Product(string name, int unitPrice) {
+		public Fee(string name, int unitPrice) {
 			this.name = name;
 			this.unitPrice = unitPrice;
 		}
 
-		public string Name {
+		public string PayeeName {
 			get { return name; }
 			set { name = value; }
 		}

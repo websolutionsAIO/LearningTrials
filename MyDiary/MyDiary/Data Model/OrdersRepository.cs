@@ -11,30 +11,35 @@ namespace MyDiary
 			this.orders = new ObservableCollection<Order>();
 		}
 
-		public ObservableCollection<Order> Orders {
-			get { return orders; }
-		}
-	}
+		//public ObservableCollection<Order> Orders {
+		//	get { return orders; }
+		//}
+
+        public ObservableCollection<Order> FeeInfo
+        {
+            get { return orders; }
+        }
+    }
 
 	public class TestOrdersRepository : OrdersRepository {
 
 		const int orderCount = 100;
-		readonly List<Product> products;
+		readonly List<Fee> products;
 		readonly Random random;
 
 		public TestOrdersRepository() : base() {
 			this.random = new Random((int)DateTime.Now.Ticks);
-			this.products = new List<Product>();
+			this.products = new List<Fee>();
 
 			GenerateProducts();
 
 			for (int i = 0; i < orderCount; i++)
-				Orders.Add(GenerateOrder(i));
+                FeeInfo.Add(GenerateOrder(i));
 		}
 
 		Order GenerateOrder(int number) {
 			Order order = new Order(new DateTime(2014, 1, 1).AddDays(random.Next(0, 60)), 
-				number % 3 == 0, RandomItem<Product>(products), random.Next(1, 100));
+				number % 3 == 0, RandomItem<Fee>(products), random.Next(1, 100));
 			return order;
 		}
 
@@ -44,14 +49,14 @@ namespace MyDiary
 		}
 
 		void GenerateProducts() {
-			products.Add(new Product("Tofu", 50));
-			products.Add(new Product("Chocolade", 34));
-			products.Add(new Product("Ikura", 70));
-			products.Add(new Product("Chai", 3));
-			products.Add(new Product("Boston Crab Meat", 36));
-			products.Add(new Product("Ravioli Angelo", 18));
-			products.Add(new Product("Ipon Coffee", 10));
-			products.Add(new Product("Questo Cabrales", 25));
+			products.Add(new Fee("Tofu", 50));
+			products.Add(new Fee("Chocolade", 34));
+			products.Add(new Fee("Ikura", 70));
+			products.Add(new Fee("Chai", 3));
+			products.Add(new Fee("Boston Crab Meat", 36));
+			products.Add(new Fee("Ravioli Angelo", 18));
+			products.Add(new Fee("Ipon Coffee", 10));
+			products.Add(new Fee("Questo Cabrales", 25));
 		}
 	}
 }

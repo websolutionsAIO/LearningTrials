@@ -13,7 +13,7 @@
         <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
     </ContentPage.Padding>
 
-    <dxGrid:GridControl x:Name="grid" ItemsSource="{Binding Orders}" 
+    <!--<dxGrid:GridControl x:Name="grid" ItemsSource="{Binding Orders}" 
 	 					NewItemRowVisibility = "true" 
 						CalculateCustomSummary="OnCalculateCustomSummary" 
 						SortMode = "Multiple" AutoFilterPanelVisibility="true">
@@ -41,5 +41,17 @@
             <dxGrid:GridColumnSummary FieldName="Shipped" Type="Custom" 
             						  DisplayFormat= "Not Shipped: {0}"/>
         </dxGrid:GridControl.TotalSummaries>
+    </dxGrid:GridControl>-->
+
+    <dxGrid:GridControl x:Name="grid" ItemsSource="{Binding FeeInfo}" 
+	 					NewItemRowVisibility = "true" 
+						SortMode = "Multiple" AutoFilterPanelVisibility="true">
+        <dxGrid:GridControl.Columns>
+            <dxGrid:TextColumn FieldName="Fee.PayeeName" Caption = "Payee Name" Width = "170"
+	 						   SortOrder = "Descending" SortIndex = "0"/>
+            <dxGrid:SwitchColumn FieldName="FeeAmount" AllowSort = "False" AllowAutoFilter="false"/>
+            <dxGrid:DateColumn FieldName="PaymentDate" DisplayFormat="d"
+	 						   IsGrouped = "false" GroupInterval = "Date"/> 
+        </dxGrid:GridControl.Columns>
     </dxGrid:GridControl>
 </ContentPage>
